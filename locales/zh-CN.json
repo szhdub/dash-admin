@@ -18,6 +18,7 @@
   "logout": "退出登录",
   "router.home": "首页",
   "router.dashboard": "工作台",
+  "router.accs": "帐号信息",
   "router.design": "创意设计",
   "router.article": "文章列表",
   "router.article_remote": "文章列表（远程）",

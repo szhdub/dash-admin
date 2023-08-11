@@ -10,7 +10,7 @@ export default [
         message: "请示成功",
         status: "success",
         data: {
-          name: "管理员小陈",
+          name: "管理员",
           age: 18,
           avatar: "../../src/assets/img/avatar.jpg",
           permission: "admin",

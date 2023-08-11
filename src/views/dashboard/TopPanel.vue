@@ -32,7 +32,7 @@ const animalList = [
     unit: "RMB",
     category: "精神系",
     color: "bg-yellow-500",
-    description: "最近在肯德基很火",
+    description: "呆萌丫丫",
     img: Keda
   },
   {

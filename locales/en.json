@@ -18,6 +18,7 @@
   "logout": "Logout",
   "router.home": "Home",
   "router.dashboard": "Dashboard",
+  "router.accs": "Accs",
   "router.design": "Design",
   "router.article": "Article",
   "router.article_remote": "Article Remote",

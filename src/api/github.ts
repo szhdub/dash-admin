@@ -22,7 +22,8 @@ export type contentType = {
  * @description 获取仓库commit信息
  */
 export const fetchCommits = (user: string, repo: string, token: string) => {
-  const url = `https://api.github.com/repos/${user}/${repo}/commits?access_token=${token}`;
+  const url = `http://127.0.0.1:4523/m1/3142842-0-default/commits`;
+  // const url = `https://api.github.com/repos/${user}/${repo}/commits?access_token=${token}`;
   return new Promise<BasicResult<GithubCommitResultType[]>>(async (resolve, reject) => {
     try {
       const res = await axios.get<{}, BasicResult<GithubCommitResultType[]>>(url, {

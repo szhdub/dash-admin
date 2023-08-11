@@ -17,6 +17,20 @@ const routes = [
     ]
   },
   {
+    path: "/dash",
+    name: "DashPage",
+    component: () => import("@/layouts/common-page.vue"),
+    meta: { menu: { title: "router.accs", icon: "Monitor" } },
+    children: [
+      {
+        path: "accs",
+        name: "Accs",
+        meta: { menu: { title: "router.accs" } },
+        component: () => import("@/views/HomePage.vue")
+      }
+    ]
+  },
+  {
     path: "/login",
     name: "LoginPage",
     meta: { guest: true },
