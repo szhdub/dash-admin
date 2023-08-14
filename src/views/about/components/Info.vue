@@ -20,36 +20,6 @@ const { version } = pkg;
             </template>
             <el-tag size="small">v{{ version }}</el-tag>
           </el-descriptions-item>
-          <el-descriptions-item>
-            <template #label>
-              <div class="cell-item">{{ t("page.about.info.doc") }}</div>
-            </template>
-            <el-link type="primary" href="https://www.cloudhao.top/pages/c125c3/" target="_blank"
-              >文档地址</el-link
-            >
-          </el-descriptions-item>
-          <el-descriptions-item>
-            <template #label>
-              <div class="cell-item">{{ t("page.about.info.preview") }}</div>
-            </template>
-            <el-link
-              type="primary"
-              href="https://cloudhao1999.github.io/cloud-app-admin/#/login"
-              target="_blank"
-              >预览地址</el-link
-            >
-          </el-descriptions-item>
-          <el-descriptions-item>
-            <template #label>
-              <div class="cell-item">{{ t("page.about.info.github") }}</div>
-            </template>
-            <el-link
-              type="primary"
-              href="https://github.com/cloudhao1999/cloud-app-admin"
-              target="_blank"
-              >Github仓库</el-link
-            >
-          </el-descriptions-item>
         </el-descriptions>
       </div>
     </template>

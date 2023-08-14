@@ -26,10 +26,10 @@ function toLogin() {
 </script>
 
 <template>
-  <el-avatar shape="square" :size="40" :src="userState.avatar" />
+  <el-avatar shape="square" :size="40" src="../../../src/assets/img/pika.webp" />
   <div class="flex flex-col items-start">
     <span class="font-sans dark:text-white text-gray-600 text-sm font-medium">{{
-      t("hello") + userState.name
+      t("hello")
     }}</span>
     <span class="font-sans dark:text-white text-gray-500 text-sm">{{ formatted }}</span>
   </div>
@@ -38,12 +38,7 @@ function toLogin() {
       ><setting
     /></el-icon>
     <template #dropdown>
-      <el-dropdown-menu>
-        <el-dropdown-item @click="openNewTab(UserEnum.GITHUB_REPOSITORY)">{{
-          t("github")
-        }}</el-dropdown-item>
-        <el-dropdown-item @click="toLogin">{{ t("logout") }}</el-dropdown-item>
-      </el-dropdown-menu>
+      <el-dropdown-item @click="toLogin">{{ t("logout") }}</el-dropdown-item>
     </template>
   </el-dropdown>
 </template>

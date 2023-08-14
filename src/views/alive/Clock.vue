@@ -8,8 +8,8 @@ let payTimer: number | undefined;
 const { t } = useI18n();
 const workTime = dayjs()
   .startOf("day")
-  .add(17, "hour")
-  .add(50, "minute")
+  .add(18, "hour")
+  .add(0, "minute")
   .format("YYYY-MM-DD HH:mm:ss");
 const countObj = reactive<{ showTime: string }>({
   showTime: ""

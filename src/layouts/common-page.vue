@@ -19,7 +19,6 @@ watch(
     <Menu />
     <el-container direction="vertical">
       <Header />
-      <History />
       <PageView />
     </el-container>
   </el-container>

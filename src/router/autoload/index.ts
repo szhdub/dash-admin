@@ -96,7 +96,7 @@ async function autoload(router: Router) {
 
   if (remoteFlag) {
     const remoteRoutes = await fetchRemoteRoute();
-    routes = [...routes, ...remoteRoutes];
+    routes = [...routes];
   }
 
   routes = routes.map((route) => {

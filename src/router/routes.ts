@@ -3,30 +3,44 @@ import { RouteRecordRaw } from "vue-router";
 const routes = [
   {
     path: "/",
-    name: "HomePage",
-    redirect: { name: "Dashboard" },
+    name: "AccsPage",
+    redirect: { name: "Accs" },
     component: () => import("@/layouts/common-page.vue"),
-    meta: { auth: true, menu: { title: "router.home", icon: "Monitor" } },
-    children: [
-      {
-        path: "dashboard",
-        name: "Dashboard",
-        meta: { menu: { title: "router.dashboard" } },
-        component: () => import("@/views/HomePage.vue")
-      }
-    ]
-  },
-  {
-    path: "/dash",
-    name: "DashPage",
-    component: () => import("@/layouts/common-page.vue"),
-    meta: { menu: { title: "router.accs", icon: "Monitor" } },
+    meta: { menu: { title: "router.accs", icon: "Postcard", hideParent: true } },
     children: [
       {
         path: "accs",
         name: "Accs",
         meta: { menu: { title: "router.accs" } },
-        component: () => import("@/views/HomePage.vue")
+        component: () => import("@/views/accs/index.vue")
+      }
+    ]
+  },
+  {
+    path: "/",
+    name: "DashPage",
+    component: () => import("@/layouts/common-page.vue"),
+    meta: { menu: { title: "router.dashboard", icon: "Monitor", hideParent: true, sort: -5 } },
+    children: [
+      {
+        path: "dash",
+        name: "Dash",
+        meta: { menu: { title: "router.dashboard" } },
+        component: () => import("@/views/dash/Dash.vue")
+      }
+    ]
+  },
+  {
+    path: "/",
+    name: "MitmPage",
+    component: () => import("@/layouts/common-page.vue"),
+    meta: { menu: { title: "router.mitm", icon: "Operation", hideParent: true } },
+    children: [
+      {
+        path: "mitm",
+        name: "Mitm",
+        meta: { menu: { title: "router.mitm" } },
+        component: () => import("@/views/mitm/Mitm.vue")
       }
     ]
   },
