@@ -1,50 +1,34 @@
 <script setup lang="ts">
-// id title content
+import { ref, onMounted } from "vue";
+import { useFetchAndUpdateData } from "./useFetchAndUpdateData";
+
 const dataSource = ref([
   {
-    id: 1,
-    title: "title1",
-    content: "content1",
-    isOnline: false
+    uuid: 1,
+    level: "level1",
+    server_id: "server_id1",
+    online: "ingame"
   },
   {
-    id: 2,
-    title: "title2",
-    content: "content2",
-    isOnline: true
+    uuid: 2,
+    level: "title2",
+    server_id: "server_id2",
+    online: "false"
   }
 ]);
-const articleColumns = computed(() => {
-  return [
-    {
-      prop: "id",
-      label: "ID",
-      width: "80",
-      show: true,
-      sortable: true
-    },
-    {
-      prop: "title",
-      label: "Title",
-      width: "180",
-      show: true,
-      sortable: true
-    },
-    {
-      prop: "content",
-      label: "Content",
-      show: true,
-      sortable: true,
-      showOverflowTooltip: true
-    }
-  ];
+
+const { articleColumns, fetchAndUpdateData } = useFetchAndUpdateData();
+console.log("articleColumns", articleColumns.value);
+
+onMounted(async () => {
+  await fetchAndUpdateData();
 });
 
-const tableRowClassName = ({ row, rowIndex }) => {
-  if (row.isOnline) {
-    return "warning-row";
-  } else {
+const tableRowClassName = ({ row }) => {
+  if (row.online === "ingame") {
     return "success-row";
+  } else {
+    return "warning-row";
   }
 };
 </script>
@@ -66,7 +50,7 @@ const tableRowClassName = ({ row, rowIndex }) => {
           <div>total: 100</div>
         </template>
         <template #options>
-          <el-button icon="refresh" circle />
+          <el-button icon="refresh" @click="fetchAndUpdateData" circle />
         </template>
       </c-table>
     </div>

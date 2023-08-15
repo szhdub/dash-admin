@@ -38,9 +38,6 @@
   "router.vue": "Vue.js",
   "router.i18n": "国际化",
   "router.i18nTest": "国际化测试",
-  "router.nested": "层级嵌套",
-  "router.level1": "层级 1",
-  "router.level2": "层级 2",
   "router.permission": "权限页面",
   "router.normal": "普通权限",
   "router.extra": "额外权限",
@@ -128,6 +125,7 @@
   "page.common.login.form.checkbox.remember": "记住我",
   "page.common.login.form.link.forget": "管理员不需要密码",
   "page.common.login.form.link.OAuth": "第三方登录",
-  "page.common.login.form.link.btn.google": "谷歌"
+  "page.common.login.form.link.btn.google": "谷歌",
+  "page.common.login.form.link.btn.github": "Github"
 
 }

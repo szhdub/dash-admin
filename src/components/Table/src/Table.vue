@@ -15,6 +15,7 @@ const props = withDefaults(defineProps<Props>(), {
   tableData: () => [],
   showHeader: false
 });
+console.log("Col", props.columns);
 
 const { computedColumns, columnsRef, filterColumns, moveColumn } = useTable<any>(props.columns);
 

@@ -38,9 +38,6 @@
   "router.vue": "Vue.js",
   "router.i18n": "i18n",
   "router.i18nTest": "i18n Test",
-  "router.nested": "Nested",
-  "router.level1": "Level 1",
-  "router.level2": "Level 2",
   "router.permission": "Permission Pages",
   "router.normal": "Normal Permission",
   "router.extra": "Extra Permission",
@@ -128,5 +125,7 @@
   "page.common.login.form.checkbox.remember": "Remember Me",
   "page.common.login.form.link.forget": "no password needed!",
   "page.common.login.form.link.OAuth": "OAuth Login",
-  "page.common.login.form.link.btn.google": "Google"
+  "page.common.login.form.link.btn.google": "Google",
+  "page.common.login.form.link.btn.github": "Github"
+
 }

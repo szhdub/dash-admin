@@ -1,0 +1,26 @@
+[
+  {
+    "prop": "uuid",
+    "label": "Uuid",
+    "width": 120,
+    "show": true,
+    "sortable": true,
+    "showOverflowTooltip": true
+  },
+  {
+    "prop": "level",
+    "label": "Level",
+    "width": 120,
+    "show": true,
+    "sortable": true,
+    "showOverflowTooltip": true
+  },
+  {
+    "prop": "server_id",
+    "label": "ServerId",
+    "width": 120,
+    "show": true,
+    "sortable": true,
+    "showOverflowTooltip": true
+  }
+]

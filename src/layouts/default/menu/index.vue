@@ -14,8 +14,6 @@ watchEffect(() => {
 const isCollapse = computed(() => {
   return menuService.close.value;
 });
-
-console.log("Menu", menuService.menus);
 </script>
 
 <template>

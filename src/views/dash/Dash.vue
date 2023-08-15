@@ -1,21 +1,36 @@
 <script setup lang="ts">
-// id title content
-const dataSource = ref([
-  {
-    serverId: 1,
-    open: "title1",
-    accounts: "content1"
-  },
-  {
-    serverId: 2,
-    open: "title2",
-    accounts: "content2"
+import { ref, onMounted } from "vue";
+import { fetchDashInfo } from "@/api/dash";
+import { ServerInfo } from "#/dashType";
+
+let dataSource = ref<ServerInfo[]>([]);
+let took = ref(0);
+let total = ref(0);
+let status = ref("loading...");
+const fetchAndUpdateData = async () => {
+  try {
+    const result = await fetchDashInfo();
+    dataSource.value = result.servers;
+    took.value = result.took;
+    total.value = result.total;
+    status.value = result.status;
+  } catch (error) {
+    console.error("Error fetching admin info:", error);
   }
-]);
+};
+
+onMounted(async () => {
+  // 初始化时执行一次请求
+  fetchAndUpdateData();
+
+  // 每5秒执行一次请求
+  // setInterval(fetchAndUpdateData, 5000);
+});
+
 const articleColumns = computed(() => {
   return [
     {
-      prop: "serverId",
+      prop: "server_id",
       label: "ServerId",
       width: 120,
       show: true,
@@ -30,7 +45,7 @@ const articleColumns = computed(() => {
       sortable: true
     },
     {
-      prop: "accounts",
+      prop: "count",
       label: "Accounts",
       width: 120,
       show: true,
@@ -46,7 +61,7 @@ const articleColumns = computed(() => {
       showOverflowTooltip: true
     },
     {
-      prop: "makers",
+      prop: "char_maker",
       label: "Makers",
       width: 120,
       show: true,
@@ -62,7 +77,7 @@ const articleColumns = computed(() => {
       showOverflowTooltip: true
     },
     {
-      prop: "serverName",
+      prop: "states1",
       label: "ServerName",
       width: 150,
       show: true,
@@ -71,20 +86,6 @@ const articleColumns = computed(() => {
     }
   ];
 });
-
-const tableRowClassName = ({ row, rowIndex }) => {
-  if (row.isOnline) {
-    return "warning-row";
-  } else if (row.isOnline == false) {
-    return "success-row";
-  } else {
-    return "";
-  }
-};
-
-// const myRowStyle = ({ row, rowIndex }) => {
-//   console.log("Row", row);
-// };
 </script>
 
 <template>
@@ -99,13 +100,16 @@ const tableRowClassName = ({ row, rowIndex }) => {
         :cell-style="{ padding: '0' }"
         border
         @selection-change="() => {}"
-        :row-class-name="tableRowClassName"
       >
         <template #status>
-          <div>total: 100</div>
+          <div class="flex gap-2">
+            <span>took: {{ took }}</span>
+            <span>total: {{ total }}</span>
+            <span>status: {{ status }}</span>
+          </div>
         </template>
         <template #options>
-          <el-button icon="refresh" circle />
+          <el-button icon="refresh" @click="fetchAndUpdateData" circle />
         </template>
       </c-table>
     </div>

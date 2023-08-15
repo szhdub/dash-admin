@@ -1,7 +1,7 @@
 import { defineConfig, loadEnv, PluginOption } from "vite";
 import dayjs from "dayjs";
 import pkg from "./package.json";
-import alias from "./vite/alias";
+import { resolve } from "node:path";
 
 import { parseEnv, sanitizeFileName } from "./vite/util";
 import setupPlugins from "./vite/plugins";
@@ -20,7 +20,16 @@ export default defineConfig(({ command, mode }) => {
   return {
     plugins: [...setupPlugins(isBuild, env), visualizer()] as PluginOption[],
     resolve: {
-      alias,
+      alias: [
+        {
+          find: "#",
+          replacement: "./types"
+        },
+        {
+          find: "@",
+          replacement: resolve(__dirname, "./src")
+        }
+      ],
       extensions: [".ts", ".js", ".vue", ".json"]
     },
     base: isBuild ? "/" : "/",

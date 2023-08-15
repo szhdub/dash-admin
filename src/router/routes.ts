@@ -12,7 +12,7 @@ const routes = [
         path: "accs",
         name: "Accs",
         meta: { menu: { title: "router.accs" } },
-        component: () => import("@/views/accs/index.vue")
+        component: () => import("@/views/accs/Accs.vue")
       }
     ]
   },
